@@ -1,4 +1,5 @@
 import { expect } from '@open-wc/testing'
+import '@polymer/paper-dropdown-menu/paper-dropdown-menu'
 import * as sinon from 'sinon'
 import dropdown from '../dropdown'
 import { pEvent } from './async-tests'
@@ -8,10 +9,6 @@ describe('paper-elements', () => {
     let opts
 
     describe('dropdown', () => {
-        before(async () => {
-            await import('@polymer/paper-dropdown-menu/paper-dropdown-menu')
-        })
-
         beforeEach(() => {
             opts = {
             }
@@ -29,9 +26,7 @@ describe('paper-elements', () => {
             const el = await render(renderFunc, field)
 
             // then
-            expect(el).dom.to.equalSnapshot({
-                ignoreAttributes: ['no-animations'],
-            })
+            expect(el.required).to.be.true
         })
 
         it('should fire validation when value is set', async () => {

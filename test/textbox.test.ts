@@ -1,4 +1,5 @@
 import { expect } from '@open-wc/testing'
+import '@polymer/paper-input/paper-input'
 import textbox from '../textbox'
 import render from './helper/render'
 
@@ -7,10 +8,6 @@ describe('paper-elements', () => {
 
     describe('textbox', () => {
         describe('single line', () => {
-            before(async () => {
-                await import('@polymer/paper-input/paper-input')
-            })
-
             beforeEach(() => {
                 opts = {
                     type: 'single line',
@@ -56,7 +53,7 @@ describe('paper-elements', () => {
                 const el = await render(renderFunc, field)
 
                 // then
-                expect(el).dom.to.equalSnapshot()
+                expect(el.getAttribute('label')).to.equal('user name')
             })
 
             it('should be [auto-validate]', async () => {
