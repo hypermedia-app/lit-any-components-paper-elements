@@ -1,6 +1,6 @@
 import { expect } from '@open-wc/testing'
-import * as components from '..'
 import * as sinon from 'sinon'
+import dropdown from '../dropdown'
 import { pEvent } from './async-tests'
 import render from './helper/render'
 
@@ -25,8 +25,8 @@ describe('paper-elements', () => {
             }
 
             // when
-            const dropdown = components.dropdown(opts)
-            const el = await render(dropdown, field)
+            const renderFunc = dropdown(opts)
+            const el = await render(renderFunc, field)
 
             // then
             expect(el).dom.to.equalSnapshot({
@@ -39,8 +39,8 @@ describe('paper-elements', () => {
             const field = {
                 title: 'user name',
             }
-            const dropdown = components.dropdown(opts)
-            const el = await render(dropdown, field)
+            const renderFunc = dropdown(opts)
+            const el = await render(renderFunc, field)
             el.validate = sinon.spy()
             const valueChangedToHappen = pEvent(el, 'value-changed')
 
@@ -60,8 +60,13 @@ describe('paper-elements', () => {
             opts.items = [{}, {}, {}]
 
             // when
-            const dropdown = components.dropdown(opts)
-            const el = await render(dropdown, field)
+            const renderFunc = dropdown(opts)
+            const el = await render(renderFunc, field)
+
+            // wait for the promise
+            await new Promise((resolve) => {
+                setTimeout(resolve, 1)
+            })
 
             // then
             expect(el.querySelectorAll('paper-item').length).to.be.equal(3)
@@ -75,8 +80,13 @@ describe('paper-elements', () => {
             opts.items = f => f.title.split('').map(l => ({ label: l, value: l }))
 
             // when
-            const dropdown = components.dropdown(opts)
-            const el = await render(dropdown, field)
+            const renderFunc = dropdown(opts)
+            const el = await render(renderFunc, field)
+
+            // wait for the promise
+            await new Promise((resolve) => {
+                setTimeout(resolve, 1)
+            })
 
             // then
             const itemElements = el.querySelectorAll('paper-item')
@@ -93,8 +103,13 @@ describe('paper-elements', () => {
             opts.items = f => Promise.resolve(f.title.split('').map(l => ({ label: l, value: l })))
 
             // when
-            const dropdown = components.dropdown(opts)
-            const el = await render(dropdown, field)
+            const renderFunc = dropdown(opts)
+            const el = await render(renderFunc, field)
+
+            // wait for the promise
+            await new Promise((resolve) => {
+                setTimeout(resolve, 1)
+            })
 
             // then
             const itemElements = el.querySelectorAll('paper-item')

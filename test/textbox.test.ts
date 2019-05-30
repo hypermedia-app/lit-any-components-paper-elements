@@ -1,5 +1,5 @@
 import { expect } from '@open-wc/testing'
-import * as components from '..'
+import textbox from '../textbox'
 import render from './helper/render'
 
 describe('paper-elements', () => {
@@ -24,8 +24,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el.getAttribute('required')).to.be.not.null
@@ -37,8 +37,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el.tagName).to.match(/paper-input/i)
@@ -52,8 +52,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el).dom.to.equalSnapshot()
@@ -66,8 +66,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el.autoValidate).to.be.true
@@ -81,8 +81,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field, 'id', null)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field, 'id')
 
                 // then
                 expect(el.invalid).to.be.false
@@ -106,8 +106,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el.tagName).to.match(/paper-textarea/i)
@@ -120,8 +120,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el.autoValidate).to.be.true
@@ -135,8 +135,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field)
 
                 // then
                 expect(el.required).to.be.true
@@ -150,8 +150,8 @@ describe('paper-elements', () => {
                 }
 
                 // when
-                const textbox = components.textbox(opts)
-                const el = await render(textbox, field, 'id', null)
+                const renderFunc = textbox(opts)
+                const el = await render(renderFunc, field, 'id')
 
                 // then
                 expect(el.invalid).to.be.false
