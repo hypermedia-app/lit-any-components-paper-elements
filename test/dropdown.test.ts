@@ -1,16 +1,19 @@
+// @ts-ignore
 import { expect } from '@open-wc/testing'
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu'
 import * as sinon from 'sinon'
+import { DropdownOptions } from '@lit-any/forms/lib/components'
 import dropdown from '../dropdown'
 import { pEvent } from './async-tests'
 import render from './helper/render'
 
 describe('paper-elements', () => {
-    let opts
+    let opts: DropdownOptions
 
     describe('dropdown', () => {
         beforeEach(() => {
             opts = {
+                items: [],
             }
         })
 
@@ -19,7 +22,7 @@ describe('paper-elements', () => {
             const field = {
                 title: 'user name',
                 required: true,
-            }
+            } as any
 
             // when
             const renderFunc = dropdown(opts)
@@ -33,7 +36,7 @@ describe('paper-elements', () => {
             // given
             const field = {
                 title: 'user name',
-            }
+            } as any
             const renderFunc = dropdown(opts)
             const el = await render(renderFunc, field)
             el.validate = sinon.spy()
@@ -51,8 +54,8 @@ describe('paper-elements', () => {
             // given
             const field = {
                 title: 'user name',
-            }
-            opts.items = [{}, {}, {}]
+            } as any
+            opts.items = [{}, {}, {}] as any
 
             // when
             const renderFunc = dropdown(opts)
@@ -71,7 +74,7 @@ describe('paper-elements', () => {
             // given
             const field = {
                 title: 'abc',
-            }
+            } as any
             opts.items = f => f.title.split('').map(l => ({ label: l, value: l }))
 
             // when
@@ -94,7 +97,7 @@ describe('paper-elements', () => {
             // given
             const field = {
                 title: 'abc',
-            }
+            } as any
             opts.items = f => Promise.resolve(f.title.split('').map(l => ({ label: l, value: l })))
 
             // when

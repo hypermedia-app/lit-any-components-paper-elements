@@ -1,10 +1,12 @@
+// @ts-ignore
 import { expect } from '@open-wc/testing'
 import '@polymer/paper-input/paper-input'
+import { TextboxOptions } from '@lit-any/forms/lib/components'
 import textbox from '../textbox'
 import render from './helper/render'
 
 describe('paper-elements', () => {
-    let opts
+    let opts: TextboxOptions
 
     describe('textbox', () => {
         describe('single line', () => {
@@ -18,7 +20,7 @@ describe('paper-elements', () => {
                 // given
                 const field = {
                     required: true,
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -31,7 +33,7 @@ describe('paper-elements', () => {
             it('should render a text textbox', async () => {
                 // given
                 const field = {
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -46,7 +48,7 @@ describe('paper-elements', () => {
                 // given
                 const field = {
                     title: 'user name',
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -60,7 +62,7 @@ describe('paper-elements', () => {
                 // given
                 const field = {
                     title: 'user name',
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -75,7 +77,7 @@ describe('paper-elements', () => {
                 const field = {
                     title: 'user name',
                     required: true,
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -100,7 +102,7 @@ describe('paper-elements', () => {
             it('should render a textarea', async () => {
                 // given
                 const field = {
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -114,7 +116,7 @@ describe('paper-elements', () => {
                 // given
                 const field = {
                     title: 'user name',
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -129,7 +131,7 @@ describe('paper-elements', () => {
                 const field = {
                     title: 'user name',
                     required: true,
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)
@@ -144,7 +146,7 @@ describe('paper-elements', () => {
                 const field = {
                     title: 'user name',
                     required: true,
-                }
+                } as any
 
                 // when
                 const renderFunc = textbox(opts)

@@ -9,7 +9,7 @@ export default textbox(({ type }) => (f, id, v, set) => {
                             .value="${v || ''}"
                             ?required="${f.required}"
                             auto-validate
-                            @value-changed="${e => set(e.target.value)}" ></paper-textarea>`
+                            @value-changed="${(e: Event & any) => set(e.target.value)}" ></paper-textarea>`
     }
 
     import('@polymer/paper-input/paper-input')
@@ -19,5 +19,5 @@ export default textbox(({ type }) => (f, id, v, set) => {
                         .value="${v || ''}"
                         ?required="${f.required}"
                         auto-validate
-                        @value-changed="${e => set(e.target.value)}" ></paper-input>`
+                        @value-changed="${(e: Event & any) => set(e.target.value)}" ></paper-input>`
 })
