@@ -1,4 +1,4 @@
-import dropdown from '@lit-any/forms/lib/components/dropdown'
+import dropdown, { DropdownItem } from '@lit-any/forms/lib/components/dropdown'
 import { html } from 'lit-html'
 import { repeat } from 'lit-html/directives/repeat'
 import { until } from 'lit-html/directives/until'
@@ -8,7 +8,7 @@ export default dropdown(({ items = [] }) => (f, id, v, set) => {
     import('@polymer/paper-dropdown-menu/paper-dropdown-menu')
     import('@polymer/paper-item/paper-item')
 
-    function setValue(e) {
+    function setValue(e: Event & any) {
         e.target.validate()
         return set(e.target.querySelector('paper-listbox').selected)
     }
@@ -22,7 +22,7 @@ export default dropdown(({ items = [] }) => (f, id, v, set) => {
             return items
         })
 
-    function renderItem(option) {
+    function renderItem(option: DropdownItem) {
         return html`<paper-item .value="${option.value}">${option.label}</paper-item>`
     }
 
