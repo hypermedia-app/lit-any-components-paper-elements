@@ -1,6 +1,7 @@
 {
   "extends": [
     "@open-wc/eslint-config",
+    "eslint-config-prettier",
     "plugin:@typescript-eslint/recommended",
     "standard"
   ],
@@ -18,15 +19,23 @@
       "error",
       "always-multiline"
     ],
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "peerDependencies": true
+      }
+    ],
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/indent": ["error", 2]
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint/eslint-plugin",
+    "import",
     "lit"
   ],
   "env": {
