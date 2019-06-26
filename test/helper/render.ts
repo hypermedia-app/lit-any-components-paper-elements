@@ -4,10 +4,29 @@ import { fixture } from '@open-wc/testing'
 import { RenderFunc } from '@lit-any/forms/lib'
 import { FieldContract } from '@lit-any/forms/lib/formContract'
 
-export default async function (componentFactory: RenderFunc, field: FieldContract, id = 'id', value = '', setter = () => {}) {
-    const container = await fixture('<div></div>')
+export default async function(
+  componentFactory: RenderFunc,
+  field: FieldContract,
+  id = 'id',
+  value = '',
+  setter = () => {},
+) {
+  const container = await fixture('<div></div>')
 
-    render(await componentFactory(field, id, value, setter), container)
+  const forElementToRender = new Promise(resolve => {
+    const observer = new MutationObserver(mutationsList => {
+      mutationsList.forEach(mutation => {
+        if (Array.from(mutation.addedNodes).find(node => node instanceof Element)) {
+          observer.disconnect()
+          resolve()
+        }
+      })
+    })
+    observer.observe(container, { childList: true })
+  })
 
-    return container.children[0]
+  render(await componentFactory(field, id, value, setter), container)
+  await forElementToRender
+
+  return container.children[0]
 }
