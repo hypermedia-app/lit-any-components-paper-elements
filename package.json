@@ -29,7 +29,8 @@
     "test:legacy": "karma start --legacy --coverage",
     "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
     "test:bs": "karma start karma.bs.config.js --legacy --coverage",
-    "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly"
+    "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly",
+    "release": "standard-version"
   },
   "peerDependencies": {
     "lit-element": ">= 2",
