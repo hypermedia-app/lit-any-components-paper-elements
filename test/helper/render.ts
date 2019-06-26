@@ -4,7 +4,7 @@ import { fixture } from '@open-wc/testing'
 import { RenderFunc } from '@lit-any/forms/lib'
 import { FieldContract } from '@lit-any/forms/lib/formContract'
 
-export default async function(
+export default async function r(
   componentFactory: RenderFunc,
   field: FieldContract,
   id = 'id',
