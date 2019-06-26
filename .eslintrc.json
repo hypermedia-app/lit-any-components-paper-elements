@@ -9,12 +9,7 @@
   "rules": {
     "indent": "off",
     "import/no-unresolved": "warn",
-    "space-before-function-paren": [
-      "error",
-      {
-        "named": "never"
-      }
-    ],
+    "space-before-function-paren": [ "error", "never" ],
     "comma-dangle": [
       "error",
       "always-multiline"
