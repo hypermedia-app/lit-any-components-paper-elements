@@ -2,4 +2,3 @@
 *.js
 !*.conf.js
 !*.config.js
-coverage
