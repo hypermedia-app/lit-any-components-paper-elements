@@ -49,6 +49,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.0",
+    "@lit-any/forms": "^0.10.0",
     "@open-wc/eslint-config": "^1.0.0",
     "@open-wc/prettier-config": "^0.1.0",
     "@open-wc/testing": "^2.2.8",
