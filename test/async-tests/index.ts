@@ -1,4 +1,4 @@
-import LitForm from '@lit-any/forms/lib/lit-form'
+import { LitForm } from '@lit-any/forms'
 
 export function pEvent(element: HTMLElement, event: string) {
   return new Promise(resolve => {

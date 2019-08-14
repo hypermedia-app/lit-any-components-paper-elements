@@ -5,5 +5,5 @@ Material design form components for `@lit-any/forms`
 ## Installation
 
 ```
-npm i --save @lit-any/components-paper-elements lit-html lit-element
+npm i --save @lit-any/components-paper-elements @lit-any/forms lit-html lit-element
 ```

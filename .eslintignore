@@ -1,5 +1,0 @@
-*.d.ts
-*.js
-!*.conf.js
-!*.config.js
-coverage

@@ -9,6 +9,7 @@
   "rules": {
     "indent": "off",
     "import/no-unresolved": "warn",
+    "import/extensions": "off",
     "space-before-function-paren": [
       "error",
       {
